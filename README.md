@@ -18,7 +18,7 @@ Please make sure the controller node can ssh to worker nodes using ssh keys.
 
 NOTE: IF there is a error in playbook that states that host not found please use the command and Vault password can be found in .vaultpass file.
 
-
+#USAGE
 Edit the hosts file and then run the playbook, like this:
 ```bash
 	ansible-playbook site-playbook.yml
