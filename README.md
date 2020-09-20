@@ -20,7 +20,7 @@ NOTE: IF there is a error in playbook that states that host not found please use
 
 ## Usage
 
-	Edit the hosts file and then run the playbook, like this:
+Edit the hosts file and then run the playbook, like this:
 ```bash
 	ansible-playbook site-playbook.yml
 ```
