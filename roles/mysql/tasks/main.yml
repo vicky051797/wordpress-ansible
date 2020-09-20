@@ -1,0 +1,41 @@
+---
+# This playbook will install MariaDB and create db user and give permissions.
+
+- name: Install Mysql5.6 server repository
+  shell: rpm -ivh http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+  ignore_errors: yes
+
+- name: Install Mysql Server
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - mysql-server
+    - MySQL-python
+    
+- name: Configure SELinux to start mysql on any port
+  seboolean: 
+    name: mysql_connect_any 
+    state: true 
+    persistent: yes
+
+- name: Start Mysql Service
+  systemd: 
+    name: mysqld 
+    state: started 
+    enabled: yes
+
+- name: Generate Password for "{{ wp_db_user }}" user
+  shell: openssl rand -base64 12
+  register: db_user_password
+
+- name: Create mysql database Password
+  shell: mysql -uroot -e "CREATE DATABASE {{ wp_db_name }}"
+  ignore_errors: yes
+
+- name: Set db user password to a variable 
+  set_fact:
+    wp_db_password: "{{ db_user_password.stdout }}"
+
+- name: Grant privilege to {{ wp_db_user }} on {{ wp_db_name }} database
+  shell: mysql -uroot -e "GRANT ALL PRIVILEGES ON {{ wp_db_name }}.* TO '{{ wp_db_user }}'@'localhost' IDENTIFIED BY '{{ wp_db_password }}'"

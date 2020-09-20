@@ -1,0 +1,19 @@
+---
+# Variables listed here are applicable to all host groups
+wp_version: 4.6
+
+
+# MySQL settings
+mysqlservice: mysqld
+mysql_port: 3306
+
+# These are the WordPress database settings
+wp_db_name: wordpress
+wp_db_user: wordpress
+
+
+# This is used for the nginx server configuration, but access to the
+# WordPress site is not restricted by a named host.
+nginx_port: 80
+server_hostname: abc.example.com
+

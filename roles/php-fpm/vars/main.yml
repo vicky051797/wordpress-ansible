@@ -1,0 +1,9 @@
+php_packages:
+  - php-cli 
+  - php-fpm 
+  - php-mysql
+  - php-json
+  - php-mbstring
+  - php-xml
+  - php-gd
+  - php-curl

@@ -1,0 +1,15 @@
+---
+- name: Install WordPress, MariaDB, Nginx, and PHP-FPM
+  hosts: wordpress-server
+  become: true
+  become_method: sudo
+  become_user: root
+  vars_files:
+    - group_vars/vault.yml
+
+  roles:
+    - common
+    - mysql
+    - nginx
+    - php-fpm
+    - wordpress

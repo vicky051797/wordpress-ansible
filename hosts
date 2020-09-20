@@ -1,0 +1,2 @@
+[wordpress-server]
+13.233.139.91 ansible_user=centos
