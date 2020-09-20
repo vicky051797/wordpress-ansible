@@ -9,12 +9,13 @@ PHP-FPM process manager. To use, edit the hosts` file and add your server IP on 
 Please make sure the controller node can ssh to worker nodes using ssh keys.
 
 ## To make changes
-        - To add variables i.e change wordpress username, database name, etc the file global_vars/all can be used
-        - Secrets can be stored in the global_vars/vault.yml file. to edit the file use command 
+- To add variables i.e change wordpress username, database name, etc the file global_vars/all can be used
+- Secrets can be stored in the global_vars/vault.yml file. to edit the file use command 
 
-  				ansible-vault edit global_vars/vault.yml
-
-        - Password is stored in .vaultpass file on the home dir of the playbook.
+```bash
+  	ansible-vault edit global_vars/vault.yml
+```
+- Password is stored in .vaultpass file on the home dir of the playbook.
 
 NOTE: IF there is a error in playbook that states that host not found please use the command and Vault password can be found in .vaultpass file.
 
