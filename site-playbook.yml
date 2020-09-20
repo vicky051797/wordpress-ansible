@@ -1,5 +1,5 @@
 ---
-- name: Install WordPress, MariaDB, Nginx, and PHP-FPM
+- name: Install WordPress, MySql, Nginx, and PHP-FPM
   hosts: wordpress-server
   become: true
   become_method: sudo
