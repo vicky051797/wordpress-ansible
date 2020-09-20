@@ -8,7 +8,7 @@ These playbooks deploy a simple WordPress blogging platform, frontend by the Ngi
 PHP-FPM process manager. To use, edit the hosts` file and add your server IP on which the application is to be deployed.
 Please make sure the controller node can ssh to worker nodes using ssh keys.
 
-## Make Changes:
+## To make changes
         - To add variables i.e change wordpress username, database name, etc the file global_vars/all can be used
         - Secrets can be stored in the global_vars/vault.yml file. to edit the file use command 
 
@@ -18,7 +18,7 @@ Please make sure the controller node can ssh to worker nodes using ssh keys.
 
 NOTE: IF there is a error in playbook that states that host not found please use the command and Vault password can be found in .vaultpass file.
 
-#USAGE
+## Usage
 
 	Edit the hosts file and then run the playbook, like this:
 ```bash
