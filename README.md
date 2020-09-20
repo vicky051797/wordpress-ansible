@@ -1,4 +1,4 @@
-## WordPress+Nginx+PHP-FPM+MariaDB Deployment
+# WordPress Deployment Using Ansible 
 
 - Requires [Ansible]( https://www.ansible.com/ ) 2.5 or newer
 - Expects CentOS7 on AWS
@@ -15,12 +15,9 @@ Edit the hosts file and then run the playbook, like this:
 The playbooks will configure MySql, WordPress, Nginx, and PHP-FPM. When the run
 is complete, the site can be access on the IP or domain that is entered in the global_vars ( the domain name needs to point to the IP ) and then begin the WordPress configuration.
 
-# Make Changes:
+## Make Changes:
 	- To add variables i.e change wordpress username, database name, etc the file global_vars/all can be used 
 	- Secrets can be stored in the global_vars/vault.yml file. to edit the file use command 
-```bash
-ansible-vault edit global_vars/vault.yml 
-```
 	- Password is stored in .vaultpass file on the home dir of the playbook.
 	
 NOTE: IF there is a error in playbook that states that host not found please use the command
