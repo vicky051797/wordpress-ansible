@@ -17,14 +17,14 @@ is complete, the site can be access on the IP or domain that is entered in the g
 	- To add variables i.e change wordpress username, database name, etc the file global_vars/all can be used 
 	- Secrets can be stored in the global_vars/vault.yml file. to edit the file use command 
 ```bash
-ansible-vault edit global_vars/vault.yml 
-```
+	ansible-vault edit global_vars/vault.yml 
+
 	- Password is stored in .vaultpass file on the home dir of the playbook.
 	
 NOTE: IF there is a error in playbook that states that host not found please use the command
 
 ```bash
 	ansible-playbook site-playbook.yml -i hosts --ask-vault-pass
-```
+
 	Vault password can be found in .vaultpass file.	
 	
