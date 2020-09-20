@@ -17,7 +17,7 @@ Please make sure the controller node can ssh to worker nodes using ssh keys.
 ```bash
   	ansible-vault edit group_vars/vault.yml
 ```
-- Password is stored in .vaultpass file on the home dir of the playbook.
+- Vault Password is stored in .vaultpass file on the home dir of the playbook.
 
 NOTE: IF there is a error in playbook that states that host not found please use the command and Vault password can be found in .vaultpass file.
 
