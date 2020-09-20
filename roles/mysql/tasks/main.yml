@@ -26,16 +26,24 @@
     enabled: yes
 
 - name: Generate Password for "{{ wp_db_user }}" user
-  shell: openssl rand -base64 12
+  shell: openssl rand -base64 12 | base64
   register: db_user_password
+  when: vault_wp_password is not defined
 
 - name: Create mysql database Password
   shell: mysql -uroot -e "CREATE DATABASE {{ wp_db_name }}"
   ignore_errors: yes
 
+
 - name: Set db user password to a variable 
   set_fact:
     wp_db_password: "{{ db_user_password.stdout }}"
+  when: vault_wp_password is not defined
+
+- name: Set db user password to a variable 
+  set_fact:
+    wp_db_password: "{{ vault_wp_password }}"
+  when: vault_wp_password is defined 
 
 - name: Grant privilege to {{ wp_db_user }} on {{ wp_db_name }} database
   shell: mysql -uroot -e "GRANT ALL PRIVILEGES ON {{ wp_db_name }}.* TO '{{ wp_db_user }}'@'localhost' IDENTIFIED BY '{{ wp_db_password }}'"
